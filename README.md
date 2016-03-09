@@ -98,6 +98,23 @@ A number of options can be passed to achieve various effects on the print output
 
 *All options are optional and will defer to their default values when not specified*
 
+# Add custom callbacks
+This callbacks will be used only for 'newwin' option.
+```  
+  xepOnline.Formatter.Format('pdf-file',{ 
+    render:'newwin', 
+    onSuccess: function(){
+        console.log('handle success')
+      }
+    onError: function (){
+        console.log("handle error")
+      }
+    }
+  )
+
+```
+
+
 # Behind the Scenes
 
 This plugin computes the CSS style for each element within the selected print container(s), including all internal, external, and print media CSS rules puts the style directly on the element. The "computed" html source is then sent to the @cloudformatter XEPOnline  rendering engine. @cloudformatter is capable of receiving any XML document with an embedded XSL Stylesheet reference for formatting. The rendering engine translates the "computed" XHTML3 source to XSL-FO4 and then Renders the PDF.
